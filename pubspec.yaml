@@ -1,5 +1,5 @@
 name: tiktok_transitions_jm
-version: 0.0.1
+version: 0.0.2
 description: A Flutter plugin for iOS and Android to create a tiktok-like interface using the "video_player" package
 homepage: https://github.com/JeisonManuelVargas/tiktok_transitions_jm
 
