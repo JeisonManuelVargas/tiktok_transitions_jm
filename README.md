@@ -1,11 +1,6 @@
-# image_Picker_loading_jm
+# tiktok_transition_jm
 
-[![License: MIT][license_badge]][license_link]
-
-This package allows us to easily use the libraries already created and published in dart.dev "shimmer" and "cached_network_image"
-
-[![Alt text](https://img.youtube.com/vi/WxKQegyY8L0/0.jpg)](https://www.youtube.com/watch?v=WxKQegyY8L0)
-
+The tiktok_transition_jm package is a handy library designed to simplify the creation of TikTok-style video transitions in Flutter applications. With a variety of dynamic effects and smooth animations, this package allows you to easily incorporate the charm and energy of TikTok into your own applications. With tiktok_transition_jm, you can elevate the user experience of your projects, adding a touch of modernity and creativity inspired by one of the most popular social media platforms.
 
 ## How to Use
 
