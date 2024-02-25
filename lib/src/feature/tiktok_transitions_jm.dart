@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_transitions_jm/src/utils/model/loading_builder.dart';
-import 'package:tiktok_transitions_jm/src/utils/model/video_player_manager_builder.dart';
 import 'package:tiktok_transitions_jm/src/utils/model/tik_tok_model.dart';
 import 'package:tiktok_transitions_jm/src/utils/widgets/loading_page.dart';
+import 'package:tiktok_transitions_jm/src/utils/model/tik_tok_manager_builder.dart';
 
 class TikTokTransitionsJm extends StatefulWidget {
   final List<String> urlList;
   final LoadingBuilder loadingBuilder;
-  final VideoPlayerManagerBuilder builder;
+  final TikTokManagerBuilder builder;
 
   const TikTokTransitionsJm({
     super.key,

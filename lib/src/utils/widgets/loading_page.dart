@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_transitions_jm/src/utils/model/loading_builder.dart';
 import 'package:tiktok_transitions_jm/src/utils/model/tik_tok_model.dart';
-import 'package:tiktok_transitions_jm/src/utils/model/video_player_manager_builder.dart';
 import 'package:tiktok_transitions_jm/src/utils/widgets/video_player_widget.dart';
+import 'package:tiktok_transitions_jm/src/utils/model/tik_tok_manager_builder.dart';
 
 class LoadingPage extends StatelessWidget {
   final LoadingBuilder loadingBuilder;
   final TikTokModel videoPlayerModel;
-  final VideoPlayerManagerBuilder builder;
+  final TikTokManagerBuilder builder;
 
   const LoadingPage({
     super.key,
