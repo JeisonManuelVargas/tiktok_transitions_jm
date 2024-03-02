@@ -1,27 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_transitions_jm/src/utils/model/loading_builder.dart';
 import 'package:tiktok_transitions_jm/src/utils/model/tik_tok_model.dart';
 import 'package:tiktok_transitions_jm/src/utils/widgets/loading_page.dart';
+import 'package:tiktok_transitions_jm/src/utils/model/loading_builder.dart';
 import 'package:tiktok_transitions_jm/src/utils/model/tik_tok_manager_builder.dart';
-
-class TikTokTransitionsJm extends StatefulWidget {
-  final List<String> urlList;
-  final LoadingBuilder loadingBuilder;
-  final TikTokManagerBuilder builder;
-
-  const TikTokTransitionsJm({
-    super.key,
-    required this.urlList,
-    required this.builder,
-    required this.loadingBuilder,
-  });
-
-  @override
-  State<TikTokTransitionsJm> createState() => _TikTokTransitionsJmState();
-}
+import 'package:tiktok_transitions_jm/src/utils/controller/video_list_controller.dart';
 
 class _TikTokTransitionsJmState extends State<TikTokTransitionsJm> {
   late int _currentPage = 0;
+  bool activatorFirstTime = true;
   late PageController _controller;
   late List<int> currentIndexList;
   late List<TikTokModel> listVideoModel = [];
@@ -33,7 +19,9 @@ class _TikTokTransitionsJmState extends State<TikTokTransitionsJm> {
     _controller = PageController();
     _controller.addListener(() => _controllerManager());
     setState(() => currentIndexList = _generateListIndex(0));
-    listVideoModel = widget.urlList.map((e) => TikTokModel(urlVideo: e)).toList();
+
+    widget.urlListController.addListener(() {});
+
     _initialVideos();
     super.initState();
   }
@@ -96,6 +84,16 @@ class _TikTokTransitionsJmState extends State<TikTokTransitionsJm> {
     return listIndex;
   }
 
+  addElementsTiktokModelList() {
+    for (var item in widget.urlListController.urlList.asMap().entries) {
+      final findItem = listVideoModel.where((element) => element.urlVideo == item.value).toList();
+      if (findItem.isEmpty) {
+        listVideoModel.add(TikTokModel(urlVideo: item.value, index: item.key));
+      }
+    }
+    if (activatorFirstTime) _initialVideos();
+  }
+
   _initialVideos() async {
     for (var index in currentIndexList) {
       if (listVideoModel.isNotEmpty && listVideoModel.length > index) {
@@ -111,4 +109,20 @@ class _TikTokTransitionsJmState extends State<TikTokTransitionsJm> {
     _controller.dispose();
     super.dispose();
   }
+}
+
+class TikTokTransitionsJm extends StatefulWidget {
+  final LoadingBuilder loadingBuilder;
+  final TikTokManagerBuilder builder;
+  final VideoListController urlListController;
+
+  const TikTokTransitionsJm({
+    super.key,
+    required this.builder,
+    required this.loadingBuilder,
+    required this.urlListController,
+  });
+
+  @override
+  State<TikTokTransitionsJm> createState() => _TikTokTransitionsJmState();
 }
