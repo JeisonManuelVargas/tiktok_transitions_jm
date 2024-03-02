@@ -86,7 +86,9 @@ class _TikTokTransitionsJmState extends State<TikTokTransitionsJm> {
 
   addElementsTiktokModelList() {
     for (var item in widget.urlListController.urlList.asMap().entries) {
-      final findItem = listVideoModel.where((element) => element.urlVideo == item.value).toList();
+      final findItem = listVideoModel
+          .where((element) => element.urlVideo == item.value)
+          .toList();
       if (findItem.isEmpty) {
         listVideoModel.add(TikTokModel(urlVideo: item.value, index: item.key));
       }
