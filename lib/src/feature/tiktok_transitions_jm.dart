@@ -5,6 +5,22 @@ import 'package:tiktok_transitions_jm/src/utils/model/loading_builder.dart';
 import 'package:tiktok_transitions_jm/src/utils/model/tik_tok_manager_builder.dart';
 import 'package:tiktok_transitions_jm/src/utils/controller/video_list_controller.dart';
 
+class TikTokTransitionsJm extends StatefulWidget {
+  final LoadingBuilder loadingBuilder;
+  final TikTokManagerBuilder builder;
+  final VideoListController videoListController;
+
+  const TikTokTransitionsJm({
+    super.key,
+    required this.builder,
+    required this.loadingBuilder,
+    required this.videoListController,
+  });
+
+  @override
+  State<TikTokTransitionsJm> createState() => _TikTokTransitionsJmState();
+}
+
 class _TikTokTransitionsJmState extends State<TikTokTransitionsJm> {
   late int _currentPage = 0;
   bool activatorFirstTime = true;
@@ -20,7 +36,7 @@ class _TikTokTransitionsJmState extends State<TikTokTransitionsJm> {
     _controller.addListener(() => _controllerManager());
     setState(() => currentIndexList = _generateListIndex(0));
 
-    widget.urlListController.addListener(() {});
+    widget.videoListController.addListener(() {});
 
     _initialVideos();
     super.initState();
@@ -85,7 +101,7 @@ class _TikTokTransitionsJmState extends State<TikTokTransitionsJm> {
   }
 
   addElementsTiktokModelList() {
-    for (var item in widget.urlListController.urlList.asMap().entries) {
+    for (var item in widget.videoListController.urlList.asMap().entries) {
       final findItem = listVideoModel
           .where((element) => element.urlVideo == item.value)
           .toList();
@@ -111,20 +127,4 @@ class _TikTokTransitionsJmState extends State<TikTokTransitionsJm> {
     _controller.dispose();
     super.dispose();
   }
-}
-
-class TikTokTransitionsJm extends StatefulWidget {
-  final LoadingBuilder loadingBuilder;
-  final TikTokManagerBuilder builder;
-  final VideoListController urlListController;
-
-  const TikTokTransitionsJm({
-    super.key,
-    required this.builder,
-    required this.loadingBuilder,
-    required this.urlListController,
-  });
-
-  @override
-  State<TikTokTransitionsJm> createState() => _TikTokTransitionsJmState();
 }
