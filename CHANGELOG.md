@@ -10,3 +10,6 @@
 ## 0.0.4
 - changed name from  urlListController to videoListController
 
+## 0.0.4
+- implemented controller 
+

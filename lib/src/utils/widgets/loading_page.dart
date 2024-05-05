@@ -1,16 +1,13 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:tiktok_transitions_jm/src/utils/model/loading_builder.dart';
-import 'package:tiktok_transitions_jm/src/utils/model/tik_tok_model.dart';
 import 'package:tiktok_transitions_jm/src/utils/widgets/video_player_widget.dart';
-import 'package:tiktok_transitions_jm/src/utils/model/tik_tok_manager_builder.dart';
 
 class LoadingPage extends StatelessWidget {
   final LoadingBuilder loadingBuilder;
-  final TikTokModel videoPlayerModel;
-  final TikTokManagerBuilder builder;
+  final VideoPlayerModel videoPlayerModel;
+  final VideoPlayerManagerBuilder builder;
 
   const LoadingPage({
-    super.key,
     required this.builder,
     required this.loadingBuilder,
     required this.videoPlayerModel,
@@ -18,8 +15,7 @@ class LoadingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (videoPlayerModel.controller != null &&
-        videoPlayerModel.controller!.value.isInitialized) {
+    if (videoPlayerModel.controller != null && videoPlayerModel.controller!.value.isInitialized) {
       return builder(
         context,
         VideoPlayerWidget(videoPlayerModel: videoPlayerModel),
