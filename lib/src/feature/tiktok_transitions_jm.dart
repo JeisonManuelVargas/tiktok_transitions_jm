@@ -3,13 +3,13 @@ import 'package:tiktok_transitions_jm/src/utils/controller/video_list_controller
 import 'package:tiktok_transitions_jm/src/utils/model/loading_builder.dart';
 import 'package:tiktok_transitions_jm/src/utils/widgets/loading_page.dart';
 
-class VideoPlayerManagerWidget extends StatefulWidget {
+class TikTokTransitionsJm extends StatefulWidget {
   final PageController controller;
   final LoadingBuilder loadingBuilder;
   final VideoPlayerManagerBuilder builder;
   final VideoListController videoListController;
 
-  const VideoPlayerManagerWidget({
+  const TikTokTransitionsJm({
     super.key,
     required this.builder,
     required this.controller,
@@ -18,11 +18,11 @@ class VideoPlayerManagerWidget extends StatefulWidget {
   });
 
   @override
-  State<VideoPlayerManagerWidget> createState() =>
-      _VideoPlayerManagerWidgetState();
+  State<TikTokTransitionsJm> createState() =>
+      _TikTokTransitionsJmState();
 }
 
-class _VideoPlayerManagerWidgetState extends State<VideoPlayerManagerWidget> {
+class _TikTokTransitionsJmState extends State<TikTokTransitionsJm> {
   late int _currentPage;
   bool activatorFirstTime = true;
   late List<int> currentIndexList;
