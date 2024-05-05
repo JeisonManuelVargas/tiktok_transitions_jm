@@ -17,3 +17,6 @@
 ## 0.0.6
 - fixed name error 
 
+## 0.0.7
+- export VideoPlayerModel 
+
