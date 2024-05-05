@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_transitions_jm/src/utils/model/loading_builder.dart';
 import 'package:video_player/video_player.dart';
+import 'package:tiktok_transitions_jm/src/utils/model/loading_builder.dart';
 
 class VideoPlayerWidget extends StatefulWidget {
   final VideoPlayerModel videoPlayerModel;
