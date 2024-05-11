@@ -19,4 +19,7 @@
 
 ## 0.0.7
 - export VideoPlayerModel 
+- 
+## 0.0.8
+- update pubspec.yaml
 
