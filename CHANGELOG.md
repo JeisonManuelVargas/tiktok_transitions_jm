@@ -18,8 +18,11 @@
 - fixed name error 
 
 ## 0.0.7
-- export VideoPlayerModel 
-- 
+- export VideoPlayerModel
+
 ## 0.0.8
+- update pubspec.yaml
+
+## 0.0.9
 - update pubspec.yaml
 
